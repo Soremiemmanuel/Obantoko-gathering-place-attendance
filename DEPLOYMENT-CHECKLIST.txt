@@ -1,0 +1,20 @@
+GATHERING PLACE DEPLOYMENT CHECKLIST
+
+1. npm install
+2. Copy .env.example to .env
+3. Put Firebase Web App configuration in .env
+4. Enable Firestore
+5. Enable Email/Password Authentication
+6. Create your admin email/password in Firebase Authentication
+7. npm run build
+8. firebase login
+9. firebase use --add
+10. firebase deploy
+
+After deployment:
+- Open /
+- Test each CHECK IN NOW button
+- Submit one test attendance
+- Open /admin and sign in
+- Confirm the attendance row appears
+- Test EXPORT CSV

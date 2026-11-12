@@ -1,0 +1,22 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Anyone can submit an attendance record.
+    // Only signed-in users can read attendance records.
+    match /attendance/{attendanceId} {
+      allow create: if
+        request.resource.data.eventId is string &&
+        request.resource.data.eventTitle is string &&
+        request.resource.data.date is string &&
+        request.resource.data.unit is string &&
+        request.resource.data.fullName is string &&
+        request.resource.data.phone is string;
+
+      allow read: if request.auth != null;
+
+      allow update, delete: if request.auth != null;
+    }
+  }
+}
